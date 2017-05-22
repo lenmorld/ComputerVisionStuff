@@ -1,0 +1,16 @@
+VideoCapture cap
+cap.open(0); // open camera 0, or /dev/video0
+
+VideoCapture cap;
+cap.open("/home/me/my.avi"); // a video file
+
+VideoCapture cap;
+cap.open("http://dummy.url?stream=mpeg"); // a mjpeg , ipcam stream
+
+
+// whatever, from here on you get a 'raw' 24bit bgr stream:
+if ( cap.isOpened() ) {
+    Mat frame;
+    if ( ! cap.read(frame) ) // end of stream
+         return -1; 
+}
